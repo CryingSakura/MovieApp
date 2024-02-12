@@ -11,7 +11,10 @@ import com.example.movieapp_try1.screens.MainView
 import com.example.movieapp_try1.screens.navigation.RootNavigationGraph
 import com.example.movieapp_try1.ui.theme.MovieApp_try1Theme
 import com.example.movieapp_try1.ui.theme.RaisinBlack
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
