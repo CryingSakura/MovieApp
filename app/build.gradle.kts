@@ -72,15 +72,21 @@ dependencies {
     //Add retrofit2
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     //okHttp
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.12")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     //gson-conv
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
     //hilt
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-compiler:2.50")
+
     //navigation
     val nav_version = "2.7.7"
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    //coil for async image
+    implementation("io.coil-kt:coil-compose:2.5.0")
 
 
 
