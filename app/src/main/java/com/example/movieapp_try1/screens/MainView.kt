@@ -8,30 +8,31 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.movieapp_try1.MainActivityViewModel
 import com.example.movieapp_try1.R
-import com.example.movieapp_try1.screens.navigation.BottomBarScreens
 import com.example.movieapp_try1.screens.navigation.Graphs
 import com.example.movieapp_try1.screens.navigation.MainViewNavigationGraph
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainView(navController: NavHostController = rememberNavController()){
+fun MainView(navController: NavHostController = rememberNavController(), viewModel: MainActivityViewModel = hiltViewModel()) {
+
+    viewModel.fetchMovieData()
+
+
     Scaffold(
         bottomBar = {
             BottomAppBar(
