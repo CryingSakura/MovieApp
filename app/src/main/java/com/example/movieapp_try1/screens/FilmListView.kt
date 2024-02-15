@@ -14,12 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.movieapp_try1.MainActivityViewModel
 import com.example.movieapp_try1.R
 import com.example.movieapp_try1.screens.fragments.ImageCard
 
 @Preview(showBackground = true)
 @Composable
-fun FilmList(){
+fun FilmList(viewModel: MainActivityViewModel = hiltViewModel()){
+
+
+
+
     Column (modifier = Modifier
         .fillMaxSize()
         .padding(16.dp),
@@ -32,12 +38,14 @@ fun FilmList(){
             horizontalArrangement = Arrangement.Absolute.spacedBy(8.dp)) {
             Column(modifier = Modifier
                 .weight(1f)) {
-                ImageCard(painter = painterResource(id = R.drawable.tryimg), contentDescription = "Img for example",
+                ImageCard(
+                    painter = painterResource(id = R.drawable.tryimg), contentDescription = "Img for example",
                     title = "DeadPool")
             }
             Column(modifier = Modifier
                 .weight(1f)) {
-                ImageCard(painter = painterResource(id = R.drawable.tryimg), contentDescription = "Img for example",
+                ImageCard(
+                    painter = painterResource(id = R.drawable.tryimg), contentDescription = "Img for example",
                     title = "DeadPool")
             }
         }
