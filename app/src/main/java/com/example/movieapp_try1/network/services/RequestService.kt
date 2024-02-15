@@ -22,6 +22,7 @@ interface RequestService {
     companion object{
         const val BASE_URL = "https://api.themoviedb.org/3/"
         const val API = "baa4c8f60cd56f6255a334b048ad6518"
+        const val IMAGE_URL = "https://image.tmdb.org/t/p/original"
     }
 
 
