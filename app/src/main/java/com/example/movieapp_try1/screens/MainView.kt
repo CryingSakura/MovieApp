@@ -28,9 +28,13 @@ import com.example.movieapp_try1.screens.navigation.MainViewNavigationGraph
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainView(navController: NavHostController = rememberNavController(), viewModel: MainActivityViewModel = hiltViewModel()) {
+fun MainView(navController: NavHostController = rememberNavController(),
+             viewModel: MainActivityViewModel = hiltViewModel()) {
 
     viewModel.fetchMovieData()
+
+
+
 
 
     Scaffold(
