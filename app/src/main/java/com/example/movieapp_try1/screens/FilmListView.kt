@@ -1,7 +1,6 @@
 package com.example.movieapp_try1.screens
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,27 +15,17 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.movieapp_try1.MainActivityViewModel
 import com.example.movieapp_try1.screens.fragments.ImageCard
 
 
-
-
-
-
-
-
-
-
 @SuppressLint("StateFlowValueCalledInComposition")
-@Preview(showBackground = true)
 @Composable
-fun FilmList(viewModel: MainActivityViewModel = hiltViewModel()){
+fun FilmList(viewModel: MainActivityViewModel/*, onClick: () -> Unit*/, navController: NavHostController){
 
     /*viewModel.fetchMovieData()*/
 
@@ -44,12 +33,6 @@ fun FilmList(viewModel: MainActivityViewModel = hiltViewModel()){
     /*val popList = viewModel.statePopList.collectAsState().value.results*/
 
     val movies = viewModel.moviePagingFlow.collectAsLazyPagingItems()
-
-
-
-
-
-
 
     /*Log.e("GogaUrlResponse", popListSize.toString())*/
 
@@ -65,7 +48,7 @@ fun FilmList(viewModel: MainActivityViewModel = hiltViewModel()){
 
     Box (modifier = Modifier
         .fillMaxSize()){
-        Log.e("GogaLoadState", LoadState.Loading.toString())
+        /*Log.e("GogaLoadState", LoadState.Loading.toString())*/
         if (movies.loadState.refresh is LoadState.Loading){
             CircularProgressIndicator(
                 modifier = Modifier.align(Alignment.Center)
@@ -81,25 +64,24 @@ fun FilmList(viewModel: MainActivityViewModel = hiltViewModel()){
             {
                 items(movies.itemCount){ index->
                     val res = movies[index]
-                    Log.e("Gogaaaaaaaaaaaa", "${index}")
+                    /*Log.e("Gogaaaaaaaaaaaa", "${index}")*/
                     Column(modifier = Modifier
-                        .padding(vertical = 4.dp)) {
-                        ImageCard(movie = res)
+                        .padding(vertical = 4.dp)
+                    ) {
+                        res?.let {result ->
+                            ImageCard(movie = result, navController = navController, viewModel = viewModel)
+                        }
                     }
-
-                    }
+                }
                 item {
                     if (movies.loadState.refresh is LoadState.Loading){
                         CircularProgressIndicator()
                     }
                 }
-                }
-
-
             }
         }
-
     }
+}
 
 
 
