@@ -18,15 +18,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.movieapp_try1.MainActivityViewModel
 import com.example.movieapp_try1.R
 import com.example.movieapp_try1.screens.navigation.Graphs
 import com.example.movieapp_try1.screens.navigation.MainViewNavigationGraph
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainView(navController: NavHostController = rememberNavController()) {
+fun MainView(navController: NavHostController = rememberNavController(), viewModel: MainActivityViewModel = hiltViewModel()) {
 
     /*viewModel.fetchMovieData()*/
 
@@ -87,6 +89,6 @@ fun MainView(navController: NavHostController = rememberNavController()) {
                 })
         }
     ){
-         MainViewNavigationGraph(navController = navController)
+         MainViewNavigationGraph(navController = navController, viewModel = viewModel)
     }
 }
