@@ -34,7 +34,7 @@ fun FilmDetailsScreen(viewModel: MainActivityViewModel){
 
     val imgUrl = RequestService.IMAGE_URL + movie.poster_path
 
-
+    /*comment*/
     /*dfgdsfgdsfgdsfgdfgdfgdfgdfgdfg*/
 
     Box (modifier = Modifier.fillMaxSize())
